@@ -1,4 +1,4 @@
-@import React from 'react';
+import React from 'react';
 import { View, ImageBackground, Text } from 'react-native';
 import giveClassesBgImage from '../../assets/images/give-classes-background.png';
 import { RectButton } from 'react-native-gesture-handler';
