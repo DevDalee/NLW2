@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, ScrollView, Text } from 'react-native';
 import PageHeader from '../../components/PageHeader';
-import { TextInput, BorderlessButton } from 'react-native-gesture-handler';
+import { TextInput, BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import TeacherItem from '../../components/TeacherItem';
 import { Feather } from '@expo/vector-icons'
 
@@ -10,12 +10,16 @@ import styles from './styles'
 function TeacherList(){
     const [isFiltersVisible, setIsFilterVisible] = useState(false);
 
+    function hanldeToogleFiltersVisible( ){
+        setIsFilterVisible(!isFiltersVisible);
+    }
+
     return (
     <View style={styles.container}>
         <PageHeader 
             title="Proffys disponíveis" 
             headerRight={
-                <BorderlessButton>
+                <BorderlessButton onPress={hanldeToogleFiltersVisible}>
                     <Feather name='filter' size={20} color='#fff' />
                 </BorderlessButton>
             }>
@@ -46,6 +50,9 @@ function TeacherList(){
                     />
                 </View>
                 </View>
+                <RectButton style={styles.submitButton}>
+                    <Text style={styles.submitButtonText}>Filtrar</Text>
+                </RectButton>
             </View>
             )}
         </PageHeader>
